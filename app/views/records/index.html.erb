@@ -1,0 +1,23 @@
+<%= render "shared/header" %>
+<div class="container">
+
+  <%# 時間表示 %>
+  <div class="text-center display-4">
+    <div id="ymd">取得中</div>
+    <div id="weekday">取得中</div>
+    <div id="hms">取得中</div>
+  </div>
+  <%# /時間表示 %>
+
+  <div class="d-flex justify-content-center">
+    <%# 出勤ボタン %>
+      <%= button_to '出勤', {controller: 'records', action: 'index'}, {method: :get, class: "btn btn-outline-success btn-lg m-3"} %>
+    <%# /出勤ボタン %>
+
+    <%# 退勤ボタン %>
+      <%= button_to '退勤', {controller: 'records', action: 'index'}, {method: :get, class: "btn btn-outline-secondary btn-lg m-3"} %>
+    <%# /退勤ボタン %>
+  </div>
+
+</div>
+<%= render "shared/footer" %>

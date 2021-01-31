@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   # /
-  root to: "home#index"
+  root to: "records#index"
 
-  # devise
+  # record
+  resources :record
+
+  #devise
+  devise_for :users
   # Rails.application.routes.draw do
   #   devise_for :users, controllers: {
   #     registrations: 'users/registrations',#登録

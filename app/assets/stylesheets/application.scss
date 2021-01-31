@@ -10,8 +10,22 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
  *= require bootstrap/dist/css/bootstrap.min.css
  *= require_tree .
  *= require_self
  */
+ @import "reset";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+ /* nav-bar */
+.nav-title {
+  color: #FFF;
+  font-size: 1.75em;
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+ /* form */
+ .form-item {
+   padding-bottom: 1rem;
+ }

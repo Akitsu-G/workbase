@@ -1,0 +1,47 @@
+<%= render "shared/header" %>
+<%= form_with model: @user, url: user_registration_path, id: 'registration-main', class: 'row g-3', local: true do |f| %>
+<div class='container'>
+
+  <%#= Form Title %>
+  <div class='form-header col-md-6'>
+    <h2 class='form-header-text' style="letter-spacing:.05em;">
+      アカウントの作成
+    </h2>
+  </div>
+
+  <%#= Error %>
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <%#= Name %>
+  <div class="form-item col-md-6">
+    <label class="form-label">Name(表示名)</label>
+    <%= f.text_field :nickname, autofocus: true, class:"form-control", id:"nickname", maxlength:"40", required:true %>
+  </div>
+
+  <%#= Mail %>
+  <div class="form-item col-md-6">
+    <label class="form-label">Mail Address</label>
+    <%= f.email_field :email, class:"form-control", id:"email", placeholder:"kintai@sample.jp", autofocus: true, required:true %>
+  </div>
+
+  <%#= Password %>
+  <div class="form-item col-md-6">
+    <label class="form-label">Password</label>
+    <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"password", required:true %>
+    <p class='info-text'>※英数混合</p>
+  </div>
+
+  <%#= Password %>
+  <div class="form-item col-md-6">
+    <label class="form-label">Password(確認)</label>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"password-confirmation", required:true %>
+  </div>
+
+  <%#= submit %>
+  <div class='col-md-6'>
+    <%= f.submit "アカウントを作成" ,class:"btn btn-outline-success" %>
+  </div>
+
+</div><%#= /container %>
+<% end %>
+<%= render "shared/footer" %>

@@ -1,0 +1,23 @@
+<header>
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background:#301D0F;padding: .25rem;">
+    <div class="container">
+      <span class="nav-title">WorkBase</span>
+      <button class="navbar-toggler" style="border-color: transparent;" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <%# <span class="navbar-toggler-icon"></span> %>
+        <i class="fa fa-home"></i> 
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav mr-auto"></div>
+          <ul class="navbar-nav mt-2 mt-md-0">
+            <% if user_signed_in? %>
+                <%# <li class="nav-item">= link_to current_user.nickname, "#", class: "user-nickname nav-link"</li> %>
+                <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout nav-link" %></li>
+            <% else %>
+                <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: "login nav-link" %></li>
+                <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: "sign-up nav-link" %></li>
+            <% end %>
+          </ul>
+        </div>
+    </div><%# /container%>
+  </nav>
+</header>
