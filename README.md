@@ -1,24 +1,44 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
+| Column          | Type     | Options     |
+| --------------- | -------- | ----------- |
+| user_id         | string   | null: false |
+| mail            | string   | null: false |
+| pass            | string   | null: false |
+| auth            | string   | null: false |
+| name            | string   | null: false |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many :tags
+- has_many :records
 
-* System dependencies
+## tags テーブル
 
-* Configuration
+| Column          | Type     | Options     |
+| --------------- | -------- | ----------- |
+| tag_id          | string   | null: false |
+| name            | string   | null: false |
+| description     | longtext | null: false |
+| base_time       | integer  | null: false |
+| user_id         | integer  | null: false |
 
-* Database creation
+### Association
 
-* Database initialization
+- belongs_to :user
+- has_many :records
 
-* How to run the test suite
+## records テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column          | Type     | Options     |
+| --------------- | -------- | ----------- |
+| type            | string   | null: false |
+| time            | timestamp| null: false |
+| tag_id          | integer  | null: false |
+| user_id         | integer  | null: false |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :tag
+- belongs_to :user
